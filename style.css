@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  /* box-sizing: border-box; */
+}
+
+:root {
+    --botton-mov-heigth: 75px;
+    --botton-mov-width: 25px;
+    --botton-mov-border: 3px;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.game-boy {
+  background-color: red;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+  height: 500px;
+  width: 350px;
+  grid-template-areas:
+    "display display"
+    "display display"
+    "button button"
+    "controll controll";
+}
+
+/* ** Display ** */
+
+.display {
+  background-color: yellow;
+  grid-area: display;
+  padding: 35px;  
+}
+
+.display--img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* ** * ** */
+
+
+.button {
+  background-color: thistle;
+  grid-area: button;
+  position: relative;
+}
+
+.button--move {
+    top: 26px;
+    left: 50px;
+    position: absolute;
+    background-color: black;
+    height: var(--botton-mov-heigth);
+    width: var(--botton-mov-width);
+    border-radius: var(--botton-mov-border);
+}
+
+.button--move::before {
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: var(--botton-mov-heigth);
+    width: var(--botton-mov-width);
+    transform: rotate(90deg);
+    border-radius: var(--botton-mov-border);
+}
+
+.button--action {
+    position: absolute;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    right: 55px;
+    top: 5px;
+    background-color: blue;
+    box-shadow: 30px 30px red,
+                0px 60px green,
+                -30px 30px yellow;
+
+}
+
+/* ** * ** */
+
+
+
+.controll {
+  background-color: aliceblue;
+  grid-area: controll;
+}
